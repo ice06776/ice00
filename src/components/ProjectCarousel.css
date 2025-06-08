@@ -1,0 +1,85 @@
+.project-carousel {
+    display: flex;
+    gap: 32px;
+    position: relative;
+    margin-top: 32px;
+}
+
+.project-card {
+    width: 96px;
+    height: 120px;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.project-card.active {
+    box-shadow: 0 0 24px #ff00ff, 0 0 48px #00ffff;
+    transform: scale(1.1);
+}
+
+.project-thumb {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+    image-rendering: pixelated;
+    border-radius: 6px;
+    background: #0d0221;
+}
+
+.project-title {
+    font-size: 0.8rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 4px;
+    text-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+}
+
+.project-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 0, 30, 0.92);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: pixel-modal-in 0.3s;
+}
+
+.project-modal img {
+    width: 320px;
+    height: 320px;
+    image-rendering: pixelated;
+    border-radius: 16px;
+    box-shadow: 0 0 32px #00ffff, 0 0 64px #ff00ff;
+}
+
+.modal-title {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 24px;
+    text-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+}
+
+@keyframes pixel-modal-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

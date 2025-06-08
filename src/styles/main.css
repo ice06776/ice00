@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    background: #1a0636;
+    color: #fff;
+    font-family: 'Press Start 2P', 'Silkscreen', monospace;
+    image-rendering: pixelated;
+    overflow-x: hidden;
+}
+
+.pixel-portfolio-root {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 64px;
+}
+
+.center-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 64px;
+    margin-top: 48px;
+}
+
+.left-avatar,
+.right-carousel {
+    min-width: 320px;
+}
+
+.skills-aside {
+    position: absolute;
+    right: 32px;
+    top: 120px;
+}
+
+/* 火箭光标 */
+body,
+.pixel-portfolio-root {
+    cursor: url('/assets/rocket-cursor.png'), auto;
+}
+
+/* CRT扫描线 */
+.pixel-portfolio-root::after {
+    content: '';
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 1px, transparent 2px, transparent 6px);
+    z-index: 99;
+}
+
+/* 霓虹边框 */
+.pixel-menu-item,
+.project-card,
+.skill-star,
+.satellite-btn {
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    background: rgba(26, 6, 54, 0.7);
+    transition: box-shadow 0.2s;
+}
+
+.pixel-menu-item:hover,
+.project-card:hover,
+.skill-star:hover,
+.satellite-btn:hover {
+    box-shadow: 0 0 16px #ff00ff, 0 0 32px #00ffff;
+}
+
+/* 按钮震动 */
+@keyframes pixel-shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.satellite-btn:active,
+.pixel-menu-item:active,
+.project-card:active {
+    animation: pixel-shake 0.2s;
+}
+
+@media (max-width: 900px) {
+    .center-display {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .skills-aside {
+        position: static;
+        margin-top: 32px;
+        right: auto;
+        top: auto;
+    }
+}

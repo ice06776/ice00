@@ -1,0 +1,70 @@
+.pixel-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    background: rgba(26, 6, 54, 0.8);
+    box-shadow: 0 2px 16px #0d0221;
+    padding: 16px 0 0 0;
+}
+
+.pixel-navbar ul {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pixel-menu-item {
+    font-size: 1.1rem;
+    color: #fff;
+    text-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+    padding: 12px 32px;
+    cursor: pointer;
+    position: relative;
+    letter-spacing: 2px;
+    user-select: none;
+}
+
+.pixel-menu-item span {
+    font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-menu-item:hover .pixel-firework {
+    opacity: 1;
+    animation: firework 0.5s linear;
+}
+
+.pixel-firework {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle, #ff00ff 0%, #00ffff 60%, transparent 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -60%);
+}
+
+@keyframes firework {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translate(-50%, -60%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translate(-50%, -60%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.8) translate(-50%, -60%);
+    }
+}
